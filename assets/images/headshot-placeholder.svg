@@ -1,0 +1,7 @@
+<svg width="320" height="400" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="400" rx="24" fill="#E2E8F0"/>
+  <circle cx="160" cy="144" r="72" fill="#CBD5F5"/>
+  <path d="M64 316C64 256 112 224 160 224C208 224 256 256 256 316" stroke="#A5B4FC" stroke-width="20" stroke-linecap="round"/>
+  <rect x="32" y="32" width="256" height="336" rx="20" stroke="#94A3B8" stroke-width="4" stroke-dasharray="16 16"/>
+  <text x="50%" y="360" text-anchor="middle" font-family="Inter, 'Segoe UI', sans-serif" font-size="18" fill="#475569">Add headshot</text>
+</svg>

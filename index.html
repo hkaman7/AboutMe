@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hkamangir.com</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Primary navigation">
+      <span class="nav__brand">hkamangir.com</span>
+      <ul class="nav__links">
+        <li><a href="#about" class="nav__link">About Me</a></li>
+        <li><a href="#pillars" class="nav__link">Projects</a></li>
+        <li><a href="#publications" class="nav__link">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="intro" id="about">
+      <div class="intro__layout">
+        <figure class="intro__headshot">
+          <img src="assets/images/headshot.jpeg" alt="Headshot of Hamid Kamangir">
+        </figure>
+        <div class="intro__text">
+          <h1 class="intro__title">About Hamid Kamangir</h1>
+          <p class="intro__bio">Hamid Kamangir is a Postdoctoral Scholar in the Plant AI and Biophysics Lab at UC Davis. He earned a Ph.D. in Agricultural and Environmental Engineering focused on AI-enabled agroecosystem modeling, along with M.Sc. degrees in Computer Science for AI-driven severe weather prediction and Remote Sensing for satellite image analysis.</p>
+          <p class="intro__bio">His research advances AI-enabled geospatial modeling to understand agroecosystem dynamics in a changing climate. Current priorities include:</p>
+          <ul class="intro__list">
+            <li>Developing hybrid AI–physics frameworks for agroecosystem simulation to better represent interactions among carbon, water, and nutrient cycles under human and climate pressures.</li>
+            <li>Building integrative data–model learning systems that fuse satellite observations, ground measurements, and model simulations using advanced AI architectures to quantify soil health, greenhouse gas emissions, and water balance dynamics.</li>
+            <li>Advancing multi-sensor geospatial analytics to combine hyperspectral, airborne, and satellite imagery with deep learning, capturing fine-scale spatial heterogeneity and temporal evolution in agricultural and environmental systems.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="intro__projects" aria-label="Core project themes">
+        <h3>Projects</h3>
+        <div class="intro__project-tags">
+          <button type="button" class="intro__project-tag" data-project-id="climate-weather">Climate &amp; Weather Forecasting</button>
+          <button type="button" class="intro__project-tag" data-project-id="precision-agriculture">Precision Agriculture</button>
+          <button type="button" class="intro__project-tag" data-project-id="ml-tools">ML Tools</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars" id="pillars" aria-label="Project themes">
+      <div class="pillars__grid" role="tablist">
+        <article class="pillar-card" role="tab" tabindex="0" data-project-id="climate-weather" aria-controls="details-panel">
+          <h3>Climate &amp; Weather Forecasting</h3>
+          <p>Hybrid physics-ML systems for climate risk and local weather nowcasting.</p>
+          <span class="pillar-card__action">Open details →</span>
+        </article>
+        <article class="pillar-card" role="tab" tabindex="-1" data-project-id="precision-agriculture" aria-controls="details-panel">
+          <h3>Precision Agriculture</h3>
+          <p>Decision support for growers using remote sensing, soil analytics, and robotics.</p>
+          <span class="pillar-card__action">Open details →</span>
+        </article>
+        <article class="pillar-card" role="tab" tabindex="-1" data-project-id="ml-tools" aria-controls="details-panel">
+          <h3>ML Tools</h3>
+          <p>Reusable MLOps and visualization tooling to deploy models responsibly.</p>
+          <span class="pillar-card__action">Open details →</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="details" id="details-panel" aria-live="polite">
+      <div class="details__header">
+        <h2 class="details__title">Select a theme to explore the work</h2>
+        <p class="details__subtitle">You will see each collection's goals, architecture, featured projects, and visuals when you choose a theme above.</p>
+      </div>
+      <div class="details__content">
+        <div class="details__summary">
+          <h3>Project Snapshot</h3>
+          <p class="details__description">Pick a project theme to load its snapshot.</p>
+          <div class="details__subproject">
+            <h4 class="details__subproject-title">Select a project to see its highlights.</h4>
+            <p class="details__subproject-summary"></p>
+            <div class="details__subproject-tags"></div>
+          </div>
+          <dl class="details__metrics"></dl>
+          <div class="subproject-list" role="list"></div>
+        </div>
+
+        <div class="details__visual">
+          <h3>Visualization</h3>
+          <div class="visual-grid" aria-label="Visualizations for the selected project">
+            <p class="visual-placeholder">Select a project to load visuals.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <section class="publications" id="publications" aria-label="Publications showcase">
+    <div class="publications__content">
+      <h2>Publications &amp; Talks</h2>
+      <a class="publications__scholar" href="https://scholar.google.com/citations?user=YLYJGQ8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Follow on Google Scholar →</a>
+      <div class="publications__group">
+        <h3>Peer-Reviewed &amp; Preprint Publications</h3>
+        <div class="pub-year">
+          <h4>2025</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Hajiesameeli, M., &amp; Earles, J.M., 2025.</strong> California Crop Yield Benchmark: Combining Satellite Image, Climate, Evapotranspiration, and Soil Data Layers for County-Level Yield Forecasting of Over 70 Crops. <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>. [Accepted]</li>
+            <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2025.</strong> Predicting crop yield lows through the highs via binned deep imbalanced regression: A case study on vineyards. <em>International Journal of Applied Earth Observation and Geoinformation</em>, 139, 104536.</li>
+            <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2025.</strong> CMAViT: Integrating Climate, Management, and Remote Sensing Data for Crop Yield Estimation with Multimodal Vision Transformers. <em>arXiv</em>:2411.16989.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2024</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Krell, E., Collins, W., King, S.A., &amp; Tissot, P., 2024.</strong> FogNet-v2.0: Explainable Physics-Informed Vision Transformer for Coastal Fog Forecasting. <em>ESS Open Archive</em>, 327, 172191653-32706065.</li>
+            <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2024.</strong> Large-scale spatio-temporal yield estimation via deep learning using satellite and management data fusion in vineyards. <em>Computers and Electronics in Agriculture</em>, 216, 108439.</li>
+            <li><strong>Bafti, A.G., Ahmadi, A., Abbasi, A., Kamangir, H., Jamali, S., &amp; Hashemi, H., 2024.</strong> Automated actual evapotranspiration estimation: Hybrid model of a novel attention-based U-Net and metaheuristic optimization algorithms. <em>Atmospheric Research</em>, 297, 107107.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2023</h4>
+          <ul class="pub-list">
+            <li><strong>Krell, E., Kamangir, H., Collins, W., King, S.A., &amp; Tissot, P., 2023.</strong> Aggregation strategies to improve XAI for geoscience models that use correlated, high-dimensional rasters. <em>Environmental Data Science</em>, 2, e45.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2022</h4>
+          <ul class="pub-list">
+            <li><strong>Vicens-Miquel, M., Medrano, F.A., Tissot, P.E., Kamangir, H., Starek, M.J., &amp; Colburn, K., 2022.</strong> A deep learning based method to delineate the wet/dry shoreline and compute its elevation using high-resolution UAS imagery. <em>Remote Sensing</em>, 14(23), 5990.</li>
+            <li><strong>Ghamari, M., Kamangir, H., Arezoo, K., &amp; Alipour, K., 2022.</strong> Evaluation and calibration of low-cost off-the-shelf particulate matter sensors using machine learning techniques. <em>IET Wireless Sensor Systems</em>, 12(5-6), 134-148.</li>
+            <li><strong>Kamangir, H., Krell, E., Collins, W., King, S.A., &amp; Tissot, P., 2022.</strong> Importance of 3D convolution and physics on a deep learning coastal fog model. <em>Environmental Modelling &amp; Software</em>, 105424.</li>
+            <li><strong>Vicens-Miquel, M., Medrano, F.A., Tissot, P., Kamangir, H., &amp; Starek, M., 2022.</strong> Deep learning automatic detection of the wet/dry shoreline at Fish Pass, Texas. <em>IGARSS 2022 IEEE International Geoscience and Remote Sensing Symposium</em>, 1876-1879.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2021</h4>
+          <ul class="pub-list">
+            <li><strong>Raja, P., Olenskyj, A., Kamangir, H., &amp; Earles, M., 2021.</strong> Simultaneously predicting multiple plant traits from multiple sensors via deformable CNN regression. <em>arXiv</em>:2112.03205.</li>
+            <li><strong>Alizadeh, B., Bafti, A.G., Kamangir, H., Zhang, Y., Wright, D.B., &amp; Franz, K.J., 2021.</strong> A novel attention-based LSTM cell post-processor coupled with Bayesian optimization for streamflow prediction. <em>Journal of Hydrology</em>, 601, 126526.</li>
+            <li><strong>Kamangir, H., Collins, W., Tissot, P., King, S.A., Dinh, H.T.H., Durham, N., &amp; Rizzo, J., 2021.</strong> FogNet: A multiscale 3D CNN with double-branch dense block and attention mechanism for fog prediction. <em>Machine Learning with Applications</em>, 100038.</li>
+            <li><strong>Sharafi, S., Kamangir, H., King, S.A., &amp; Safaierad, R., 2021.</strong> Effects of extreme floods on fluvial changes: the Khorramabad River as case study (western Iran). <em>Arabian Journal of Geosciences</em>, 14(12), 1140.</li>
+            <li><strong>Barzin, R., Kamangir, H., &amp; Bora, G.C., 2021.</strong> Comparison of machine learning methods for leaf nitrogen estimation in corn using multispectral UAV images. <em>Transactions of the ASABE</em>, 64(6), 2089-2101.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2020</h4>
+          <ul class="pub-list">
+            <li><strong>Noori, F., Kamangir, H., King, S.A., Sheta, A., Pashaei, M., &amp; SheikhMohammadZadeh, A., 2020.</strong> A deep learning approach to urban street functionality prediction based on centrality measures and stacked denoising autoencoder. <em>ISPRS International Journal of Geo-Information</em>, 9(7), 456.</li>
+            <li><strong>Pashaei, M., Starek, M.J., Kamangir, H., &amp; Berryhill, J., 2020.</strong> Deep learning-based single image super-resolution: an investigation for dense scene reconstruction with UAS photogrammetry. <em>Remote Sensing</em>, 12(11), 1757.</li>
+            <li><strong>Kamangir, H., Collins, W., Tissot, P., &amp; King, S.A., 2020.</strong> Deep-learning model used to predict thunderstorms within 400 km² of south Texas domains. <em>Meteorological Applications</em>, 27(2).</li>
+            <li><strong>Pashaei, M., Kamangir, H., Starek, M.J., &amp; Tissot, P., 2020.</strong> Review and evaluation of deep learning architectures for efficient land cover mapping with UAS hyper-spatial imagery: A case study over a wetland. <em>Remote Sensing</em>, 12(6), 959.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2018</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Rahnemoonfar, M., Dobbs, D., Paden, J., &amp; Fox, G., 2018.</strong> Deep hybrid wavelet network for ice boundary detection in radar imagery. <em>IGARSS 2018 IEEE International Geoscience and Remote Sensing Symposium</em>, 3449-3452.</li>
+            <li><strong>Kamangir, H., Rahnemoonfar, M., Dobbs, D., Paden, J., &amp; Fox, G., 2018.</strong> Detection ice layers in RADAR images with deep learning. <em>IGARSS 2018 IEEE International Geoscience and Remote Sensing Symposium</em>.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2017</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Momeni, M., &amp; Satari, M., 2017.</strong> Automatic centerline extraction of covered roads by surrounding objects from high resolution satellite images. <em>The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences</em>, 42, 111-116.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="publications__group">
+        <h3>Technical &amp; Oral Presentations</h3>
+        <div class="pub-year">
+          <h4>2025</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Hajiesameeli, M., &amp; Earles, J.M., 2025.</strong> California Crop Yield Benchmark: Combining Satellite Image, Climate, Evapotranspiration, and Soil Data Layers for County-Level Yield Forecasting of Over 70 Crops. <em>CVPR</em>, June.</li>
+            <li><strong>Colburn, B., Collins, W.G., Tissot, P.E., Williams, J.K., King, S.A., Krell, E., Gaudet, L., Kamangir, H., &amp; White, M.C., 2025.</strong> A VAE for Coastal Airport Visibility Predictions: Architecture, Performance and R2X Potential. <em>105th AMS Annual Meeting</em>, January.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2024</h4>
+          <ul class="pub-list">
+            <li><strong>Wirz, C.D., Demuth, J.L., White, M., Radford, J.T., Tissot, P.E., Cains, M.G., Kamangir, H., Krell, E.A., Bostrom, A., King, S.A., &amp; Collins, W.G., 2024.</strong> NWS forecaster perceptions of new AI guidance for coastal fog prediction. <em>104th AMS Annual Meeting</em>, January.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2022</h4>
+          <ul class="pub-list">
+            <li><strong>Vicens Miquel, M., Medrano, F.A., Tissot, P., Kamangir, H., &amp; Starek, M., 2022.</strong> Generalized model for wet/dry shoreline detection and total water level elevation using deep learning. <em>AGU Fall Meeting</em>, December.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2021</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Collins, W.G., King, S.A., Tissot, P., Durham, N., &amp; Rizzo, J., 2021.</strong> FogNet: A Multiscale 3D CNN with an Attention Mechanism and a Dense Block for Fog Forecasting. <em>101st AMS Annual Meeting</em>, January. [Third Place Best Student Oral Presentation]</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2020</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Tissot, P.E., Collins, W.G., &amp; King, S.A., 2020.</strong> A Comparison of Deep Learning, Shallow Neural Networks, and Principal Component Analysis Based Approaches to Thunderstorm Prediction. <em>100th AMS Annual Meeting</em>, January.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
+          <h4>2018</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Rahnemoonfar, M., Dobbs, D., Paden, J., &amp; Fox, G., 2018.</strong> Detecting ice layers in radar images with deep learning. <em>IGARSS 2018 IEEE International Geoscience and Remote Sensing Symposium</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© hkamangir.com · Crafted for collaborative science and engineering storytelling.</p>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
