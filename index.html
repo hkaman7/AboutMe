@@ -14,6 +14,7 @@
         <li><a href="#about" class="nav__link">About Me</a></li>
         <li><a href="#pillars" class="nav__link">Projects</a></li>
         <li><a href="#publications" class="nav__link">Publications</a></li>
+        <li><a href="#certifications" class="nav__link">Certifications</a></li>
       </ul>
     </nav>
   </header>
@@ -23,6 +24,14 @@
       <div class="intro__layout">
         <figure class="intro__headshot">
           <img src="assets/images/headshot.jpeg" alt="Headshot of Hamid Kamangir">
+          <figcaption class="intro__contact">
+            <div class="contact-links">
+              <a class="contact-link contact-link--email" href="mailto:hamid.kamangir@gmail.com">hamid.kamangir@gmail.com</a>
+              <a class="contact-link contact-link--email" href="mailto:hkamangir@ucdavis.edu">hkamangir@ucdavis.edu</a>
+              <a class="contact-link contact-link--scholar" href="https://scholar.google.com/citations?user=YLYJGQ8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a class="contact-link contact-link--linkedin" href="https://www.linkedin.com/in/hamid-kamangir-00b90b5b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </figcaption>
         </figure>
         <div class="intro__text">
           <h1 class="intro__title">About Hamid Kamangir</h1>
@@ -45,6 +54,8 @@
       </div>
     </section>
 
+    
+
     <section class="pillars" id="pillars" aria-label="Project themes">
       <div class="pillars__grid" role="tablist">
         <article class="pillar-card" role="tab" tabindex="0" data-project-id="climate-weather" aria-controls="details-panel">
@@ -65,12 +76,21 @@
       </div>
     </section>
 
+    <!-- SUBPROJECTS STRIP: moved to sit directly below the pillar cards -->
+    <div class="details__subprojects" aria-label="Subprojects selector">
+      <h3>Subprojects</h3>
+      <div class="subproject-list" role="list"></div>
+    </div>
+
     <section class="details" id="details-panel" aria-live="polite">
       <div class="details__header">
         <h2 class="details__title">Select a theme to explore the work</h2>
         <p class="details__subtitle">You will see each collection's goals, architecture, featured projects, and visuals when you choose a theme above.</p>
       </div>
+      <!-- Accessibility status region for screen readers -->
+      <div id="a11y-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
       <div class="details__content">
+        <!-- MIDDLE STRIP: explanation / summary for the selected subproject -->
         <div class="details__summary">
           <h3>Project Snapshot</h3>
           <p class="details__description">Pick a project theme to load its snapshot.</p>
@@ -80,9 +100,9 @@
             <div class="details__subproject-tags"></div>
           </div>
           <dl class="details__metrics"></dl>
-          <div class="subproject-list" role="list"></div>
         </div>
 
+        <!-- BOTTOM STRIP: visualization area -->
         <div class="details__visual">
           <h3>Visualization</h3>
           <div class="visual-grid" aria-label="Visualizations for the selected project">
@@ -203,6 +223,32 @@
             <li><strong>Kamangir, H., Rahnemoonfar, M., Dobbs, D., Paden, J., &amp; Fox, G., 2018.</strong> Detecting ice layers in radar images with deep learning. <em>IGARSS 2018 IEEE International Geoscience and Remote Sensing Symposium</em>.</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="certifications" aria-labelledby="certifications-title">
+    <div class="certifications__inner">
+      <h2 id="certifications-title">Certifications</h2>
+      <p class="certifications__intro">Selected professional certifications and training. Click any item to view a larger image and details.</p>
+      <div class="cert-grid" id="cert-grid" role="list"></div>
+    </div>
+
+    <!-- Lightbox modal (hidden until a cert is opened) -->
+    <div id="cert-lightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-labelledby="cert-lightbox-title" tabindex="-1" hidden>
+      <div class="cert-lightbox__backdrop" data-action="close"></div>
+      <div class="cert-lightbox__panel">
+        <button class="cert-lightbox__close" aria-label="Close (Esc)" data-action="close">×</button>
+        <button class="cert-lightbox__nav cert-lightbox__prev" aria-label="Previous" data-action="prev">‹</button>
+        <div class="cert-lightbox__content">
+          <h3 id="cert-lightbox-title" class="visually-hidden">Certificate preview</h3>
+          <figure class="cert-lightbox__figure">
+            <img id="cert-lightbox-img" class="cert-lightbox__img" src="" alt="" />
+            <figcaption id="cert-lightbox-caption" class="cert-lightbox__caption"></figcaption>
+          </figure>
+        </div>
+        <button class="cert-lightbox__nav cert-lightbox__next" aria-label="Next" data-action="next">›</button>
       </div>
     </div>
   </section>

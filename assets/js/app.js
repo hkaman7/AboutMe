@@ -20,6 +20,7 @@ const collections = {
       {
         id: "weather-cmip-downscaling",
         title: "Weather CMIP Data Downscaling using ERA5",
+        thumbnail: "assets/images/CA_t2m.gif",
         summary:
           "Developing a multimodel ViT architecture for downscaling the CMIP data using ERA5 with focus on short- and long-term drought forecasting.",
         tags: ["Microsoft Internship"],
@@ -35,6 +36,7 @@ const collections = {
       {
         id: "fognet-v2",
         title: "FogNet-v2.0 Vision Transformer",
+        thumbnail: "assets/images/token.png",
         summary:
           "FogNet-v2.0 is an improved weather prediction model that uses a physics-informed vision transformer to forecast coastal fog. It combines atmospheric physics principles with a transformer architecture to deliver robust, explainable visibility categories up to 24 hours ahead.",
         tags: ["AI2ES"],
@@ -76,6 +78,7 @@ const collections = {
       {
         id: "cmavit-downscaling",
         title: "CMAViT Crop Yield Forecasting",
+        thumbnail: "assets/images/CMAViT.png",
         summary:
           "Climate Management Aware ViT (CMAViT) fuses satellite, climate, management, and soil signals to model county-level crop yields across time.",
         tags: ["AIFS"],
@@ -91,9 +94,37 @@ const collections = {
       {
         id: "california-crop-benchmark",
         title: "California Crop Yield Benchmark",
+        thumbnail: "assets/images/init.png",
         summary:
           "The California Crop Yield Benchmark integrates satellite imagery, climate, evapotranspiration, and soil layers to forecast yields for 70+ crops statewide (2008–2022).",
-        tags: ["Benchmark"],
+        tags: [
+          { label: "Dataset", url: "https://huggingface.co/datasets/hkaman/california-crop-yield-benchmark" },
+          "Benchmark",
+        ],
+        snippet: `pip install calicropyield
+
+from calicropyield.loader import DataDownloader
+
+downloader = DataDownloader(target_dir="./data")
+
+downloader.download_CDL(
+    county = ["Alameda", "Fresno"], # List of county names
+    year = [2022], # List of years
+    crop = ["Corn", "Alfalfa"], # List of crop names
+    geometry = None  # Optional geometry for spatial cropping
+)
+
+downloader.download_Landsat(
+    county_names = ["Alameda", "Fresno"], 
+    years = [2019, 2022], 
+    geometry = None)
+
+# Other available methods
+downloader.download_ET(county_names: list = None, years: list = None, geometry: None)
+downloader.download_Climate(county_names: list= None, years: list = None, variables: list = None, geometry=None)
+downloader.download_Soil(county_names: list= None, variable: list = None, geometry=None)
+downloader.download_USDA(county_names: list= None, years: list = None, crop_names: list  = None)
+`,
         visuals: [
           {
             type: "image",
@@ -141,6 +172,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const subprojectTitleEl = document.querySelector(".details__subproject-title");
   const subprojectSummaryEl = document.querySelector(".details__subproject-summary");
   const subprojectTagsEl = document.querySelector(".details__subproject-tags");
+  const summaryPanel = document.querySelector('.details__summary');
+  const visualPanel = document.querySelector('.details__visual');
+  const a11yStatus = document.getElementById('a11y-status');
+
+  // Certifications DOM refs
+  const certGrid = document.getElementById('cert-grid');
+  const certLightbox = document.getElementById('cert-lightbox');
+  const certLightboxImg = document.getElementById('cert-lightbox-img');
+  const certLightboxCaption = document.getElementById('cert-lightbox-caption');
 
   let activeCollectionId = null;
   let activeSubprojectId = null;
@@ -197,32 +237,166 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const renderProjectVisual = (project, collection) => {
-    if (!visualGrid) {
-      return;
-    }
-    visualGrid.innerHTML = "";
-    const visuals = project?.visuals || (project?.visual ? [project.visual] : []);
-    const usableVisuals = visuals.filter((item) => item && item.type === "image" && item.src);
-    if (usableVisuals.length) {
-      usableVisuals.forEach((visual) => {
-        const figure = document.createElement("figure");
-        figure.className = "visual-item";
-        const img = document.createElement("img");
-        img.className = "visual-media";
-        img.src = visual.src;
-        img.alt = visual.alt || "Project visualization";
-        figure.append(img);
-        if (visual.caption) {
-          const caption = document.createElement("figcaption");
-          caption.textContent = visual.caption;
-          figure.append(caption);
-        }
-        visualGrid.append(figure);
-      });
-      return;
-    }
-    renderDefaultVisual(collection);
+    if (!visualGrid) return;
+
+    // cross-fade: hide grid, replace content, then show
+    visualGrid.classList.remove('is-visible');
+
+    setTimeout(() => {
+      visualGrid.innerHTML = "";
+      const visuals = project?.visuals || (project?.visual ? [project.visual] : []);
+      const usableVisuals = visuals.filter((item) => item && item.type === "image" && item.src);
+      if (usableVisuals.length) {
+        usableVisuals.forEach((visual) => {
+          const figure = document.createElement("figure");
+          figure.className = "visual-item";
+          const img = document.createElement("img");
+          img.className = "visual-media";
+          img.src = visual.src;
+          img.alt = visual.alt || "Project visualization";
+          figure.append(img);
+          if (visual.caption) {
+            const caption = document.createElement("figcaption");
+            caption.textContent = visual.caption;
+            figure.append(caption);
+          }
+          visualGrid.append(figure);
+        });
+      } else {
+        renderDefaultVisual(collection);
+      }
+
+      // announce to screen readers
+      if (a11yStatus) {
+        const text = project ? `${project.title} visuals loaded.` : `${collection.title} visuals loaded.`;
+        a11yStatus.textContent = text;
+      }
+
+      requestAnimationFrame(() => visualGrid.classList.add('is-visible'));
+    }, 140);
   };
+
+    /* ------------------ Certifications rendering + lightbox ------------------ */
+    const certs = [
+      {
+        id: 'cert-1',
+        title: 'DevOps / DataOps / MLOps',
+        src: encodeURI('assets/images/certs/DevOps, DataOps, MLOps.jpg'),
+        thumb: 'assets/images/certs/devops-dataops-mlops-thumb.jpg'
+      },
+      {
+        id: 'cert-2',
+        title: 'Generative AI for Everyone',
+        src: encodeURI('assets/images/certs/Generative AI for Everyone.png'),
+        thumb: 'assets/images/certs/generative-ai-everyone-thumb.png'
+      }
+    ];
+
+    function renderCertGrid() {
+      if (!certGrid) return;
+      certGrid.innerHTML = '';
+      certs.forEach((c, idx) => {
+        const card = document.createElement('button');
+        card.className = 'cert-card';
+        card.setAttribute('data-cert-index', idx);
+        card.setAttribute('aria-label', `${c.title}. Open image`);
+
+        const thumbSrc = c.thumb || c.src;
+
+        const img = document.createElement('img');
+        img.className = 'cert-thumb';
+        img.src = thumbSrc;
+        img.alt = c.title;
+        img.loading = 'lazy';
+        // If the thumbnail is missing or invalid, fall back to the full-size image
+        img.onerror = () => {
+          console.warn('Cert thumbnail failed to load, falling back to full image for', c.src);
+          img.onerror = null;
+          img.src = c.src;
+          img.loading = 'eager';
+        };
+
+        const caption = document.createElement('div');
+        caption.className = 'cert-caption';
+        caption.textContent = c.title;
+
+        card.append(img, caption);
+
+        card.addEventListener('click', () => openCertLightbox(idx, card));
+        card.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            openCertLightbox(idx, card);
+          }
+        });
+
+        certGrid.appendChild(card);
+      });
+    }
+
+    let currentCertIndex = -1;
+    let lastFocusBeforeLightbox = null;
+
+    function openCertLightbox(index, triggerEl) {
+      if (!certLightbox) return;
+      currentCertIndex = index;
+      lastFocusBeforeLightbox = triggerEl || document.activeElement;
+      const cert = certs[index];
+      certLightboxImg.src = cert.src;
+      certLightboxImg.alt = cert.title;
+      certLightboxCaption.textContent = cert.title;
+      certLightbox.hidden = false;
+      certLightbox.setAttribute('aria-hidden', 'false');
+      setTimeout(() => { certLightbox.classList.add('is-open'); }, 10);
+      const closeBtn = certLightbox.querySelector('[data-action="close"]') || certLightbox.querySelector('.cert-lightbox__close');
+      if (closeBtn) closeBtn.focus();
+      document.addEventListener('keydown', onLightboxKey);
+    }
+
+    function closeCertLightbox() {
+      if (!certLightbox) return;
+      certLightbox.classList.remove('is-open');
+      certLightbox.hidden = true;
+      certLightbox.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', onLightboxKey);
+      if (lastFocusBeforeLightbox && typeof lastFocusBeforeLightbox.focus === 'function') lastFocusBeforeLightbox.focus();
+      currentCertIndex = -1;
+    }
+
+    function showCertAt(index) {
+      if (index < 0 || index >= certs.length) return;
+      currentCertIndex = index;
+      const cert = certs[index];
+      certLightboxImg.src = cert.src;
+      certLightboxImg.alt = cert.title;
+      certLightboxCaption.textContent = cert.title;
+    }
+
+    function onLightboxKey(e) {
+      if (!certLightbox || certLightbox.hidden) return;
+      if (e.key === 'Escape') closeCertLightbox();
+      if (e.key === 'ArrowLeft') showCertAt((currentCertIndex - 1 + certs.length) % certs.length);
+      if (e.key === 'ArrowRight') showCertAt((currentCertIndex + 1) % certs.length);
+    }
+
+    if (certLightbox) {
+      certLightbox.addEventListener('click', (ev) => {
+        const actionEl = ev.target.closest('[data-action]');
+        const action = actionEl && actionEl.getAttribute('data-action');
+        if (!action) return;
+        ev.preventDefault();
+        if (action === 'close') closeCertLightbox();
+        if (action === 'prev') showCertAt((currentCertIndex - 1 + certs.length) % certs.length);
+        if (action === 'next') showCertAt((currentCertIndex + 1) % certs.length);
+      });
+      const prevBtn = certLightbox.querySelector('[data-action="prev"]');
+      const nextBtn = certLightbox.querySelector('[data-action="next"]');
+      if (prevBtn) prevBtn.addEventListener('click', () => showCertAt((currentCertIndex - 1 + certs.length) % certs.length));
+      if (nextBtn) nextBtn.addEventListener('click', () => showCertAt((currentCertIndex + 1) % certs.length));
+    }
+
+    // initialize
+    renderCertGrid();
 
   const updateSubprojectCardSelection = (subprojectId) => {
     subprojectList?.querySelectorAll(".subproject-card").forEach((entry) => {
@@ -232,34 +406,81 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const applySubprojectSelection = (collection, subproject) => {
-    if (!subproject) {
-      subprojectTitleEl.textContent = "Select a project to see its highlights.";
-      subprojectSummaryEl.textContent = "";
+    // animate panels out, then update content and animate in
+    if (summaryPanel) summaryPanel.classList.remove('is-visible');
+    if (visualPanel) visualPanel.classList.remove('is-visible');
+
+    setTimeout(() => {
+      if (!subproject) {
+        subprojectTitleEl.textContent = "Select a project to see its highlights.";
+        subprojectSummaryEl.textContent = "";
+        if (subprojectTagsEl) {
+          subprojectTagsEl.innerHTML = "";
+        }
+        renderProjectVisual(null, collection);
+        if (summaryPanel) summaryPanel.classList.add('is-visible');
+        if (visualPanel) visualPanel.classList.add('is-visible');
+        return;
+      }
+
+      activeSubprojectId = subproject.id;
+      updateSubprojectCardSelection(activeSubprojectId);
+
+      subprojectTitleEl.textContent = subproject.title;
+      subprojectSummaryEl.textContent = subproject.summary;
+      // render code snippet if present
+      const subprojectContainer = document.querySelector('.details__subproject');
+      if (subprojectContainer) {
+        let codeWrap = subprojectContainer.querySelector('.details__subproject-code');
+        if (!codeWrap) {
+          codeWrap = document.createElement('div');
+          codeWrap.className = 'details__subproject-code';
+          subprojectContainer.append(codeWrap);
+        }
+        if (subproject.snippet) {
+          codeWrap.innerHTML = '';
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.textContent = subproject.snippet;
+          pre.append(code);
+          codeWrap.append(pre);
+        } else {
+          // remove any existing snippet block if none provided
+          if (codeWrap) codeWrap.innerHTML = '';
+        }
+      }
       if (subprojectTagsEl) {
         subprojectTagsEl.innerHTML = "";
+        if (subproject.tags?.length) {
+          subproject.tags.forEach((tag) => {
+            if (tag && typeof tag === 'object' && tag.url) {
+              const a = document.createElement('a');
+              a.className = 'details__subproject-tag';
+              a.href = tag.url;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.textContent = tag.label || tag.url;
+              subprojectTagsEl.append(a);
+            } else {
+              const badge = document.createElement("span");
+              badge.className = "details__subproject-tag";
+              badge.textContent = tag;
+              subprojectTagsEl.append(badge);
+            }
+          });
+        }
       }
-      renderProjectVisual(null, collection);
-      return;
-    }
 
-    activeSubprojectId = subproject.id;
-    updateSubprojectCardSelection(activeSubprojectId);
-
-    subprojectTitleEl.textContent = subproject.title;
-    subprojectSummaryEl.textContent = subproject.summary;
-    if (subprojectTagsEl) {
-      subprojectTagsEl.innerHTML = "";
-      if (subproject.tags?.length) {
-        subproject.tags.forEach((tag) => {
-          const badge = document.createElement("span");
-          badge.className = "details__subproject-tag";
-          badge.textContent = tag;
-          subprojectTagsEl.append(badge);
-        });
+      // announce snapshot change to assistive tech
+      if (a11yStatus) {
+        a11yStatus.textContent = `${subproject.title} snapshot loaded.`;
       }
-    }
 
-    renderProjectVisual(subproject, collection);
+      renderProjectVisual(subproject, collection);
+
+      if (summaryPanel) summaryPanel.classList.add('is-visible');
+      if (visualPanel) visualPanel.classList.add('is-visible');
+    }, 70);
   };
 
   const renderSubprojects = (collection) => {
@@ -297,6 +518,16 @@ document.addEventListener("DOMContentLoaded", () => {
       card.setAttribute("aria-selected", "false");
       card.dataset.subprojectId = project.id;
 
+      // thumbnail (if available) - prefer dedicated `thumbnail` field, else fall back to first visual
+      const thumbSrc = project.thumbnail || (project.visuals && project.visuals[0] && project.visuals[0].src);
+      if (thumbSrc) {
+        const img = document.createElement('img');
+        img.className = 'subproject-thumb';
+        img.src = thumbSrc;
+        img.alt = project.title + ' thumbnail';
+        card.append(img);
+      }
+
       const title = document.createElement("h4");
       title.className = "subproject-card__title";
       title.textContent = project.title;
@@ -311,10 +542,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const tagsWrap = document.createElement("div");
         tagsWrap.className = "subproject-card__tags";
         project.tags.forEach((tag) => {
-          const badge = document.createElement("span");
-          badge.className = "subproject-card__tag";
-          badge.textContent = tag;
-          tagsWrap.append(badge);
+          if (tag && typeof tag === 'object' && tag.url) {
+            const anchor = document.createElement('a');
+            anchor.className = 'subproject-card__tag';
+            anchor.href = tag.url;
+            anchor.target = '_blank';
+            anchor.rel = 'noopener noreferrer';
+            anchor.textContent = tag.label || tag.url;
+            tagsWrap.append(anchor);
+          } else {
+            const badge = document.createElement("span");
+            badge.className = "subproject-card__tag";
+            badge.textContent = tag;
+            tagsWrap.append(badge);
+          }
         });
         card.append(tagsWrap);
       }
@@ -352,10 +593,24 @@ document.addEventListener("DOMContentLoaded", () => {
         initialProject = project;
       }
 
-      subprojectList.append(card);
+        subprojectList.append(card);
+      });
+
+      // staggered entrance for cards
+    requestAnimationFrame(() => {
+      const cardEls = Array.from(subprojectList.querySelectorAll('.subproject-card'));
+      cardEls.forEach((el, i) => {
+        setTimeout(() => el.classList.add('appear'), i * 80);
+      });
+
+      // focus the first subproject card for keyboard users after the entrance animation
+      const firstCard = cardEls[0];
+      if (firstCard) {
+        setTimeout(() => firstCard.focus(), Math.min(300, cardEls.length * 80 + 80));
+      }
     });
 
-    applySubprojectSelection(collection, initialProject);
+      applySubprojectSelection(collection, initialProject);
   };
 
   const updateDetails = (collectionId) => {
@@ -375,14 +630,20 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const handleCardSelection = (card) => {
-    if (!card) {
-      return;
-    }
+    if (!card) return;
     const { projectId } = card.dataset;
     setActiveCard(card);
     setActiveThemeButton(projectId);
     activeSubprojectId = null;
     updateDetails(projectId);
+
+    const subprojectsStrip = document.querySelector('.details__subprojects');
+    if (subprojectsStrip) {
+      subprojectsStrip.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      const detailsPanel = document.getElementById('details-panel');
+      if (detailsPanel) detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   cards.forEach((card) => {
