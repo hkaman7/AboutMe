@@ -34,14 +34,11 @@
           </figcaption>
         </figure>
         <div class="intro__text">
-          <h1 class="intro__title">About Hamid Kamangir</h1>
-          <p class="intro__bio">Hamid Kamangir is a Postdoctoral Scholar in the Plant AI and Biophysics Lab at UC Davis. He earned a Ph.D. in Agricultural and Environmental Engineering focused on AI-enabled agroecosystem modeling, along with M.Sc. degrees in Computer Science for AI-driven severe weather prediction and Remote Sensing for satellite image analysis.</p>
-          <p class="intro__bio">His research advances AI-enabled geospatial modeling to understand agroecosystem dynamics in a changing climate. Current priorities include:</p>
-          <ul class="intro__list">
-            <li>Developing hybrid AI–physics frameworks for agroecosystem simulation to better represent interactions among carbon, water, and nutrient cycles under human and climate pressures.</li>
-            <li>Building integrative data–model learning systems that fuse satellite observations, ground measurements, and model simulations using advanced AI architectures to quantify soil health, greenhouse gas emissions, and water balance dynamics.</li>
-            <li>Advancing multi-sensor geospatial analytics to combine hyperspectral, airborne, and satellite imagery with deep learning, capturing fine-scale spatial heterogeneity and temporal evolution in agricultural and environmental systems.</li>
-          </ul>
+          <h1 class="intro__title">Hamid Kamangir, PhD</h1>
+          <p class="intro__bio">Researcher and ML engineer operating at the intersection of Earth system science, agriculture, climate, and production AI — bridging rigorous scientific modeling and the engineering practices required to ship reliable ML systems at scale.</p>
+          <p class="intro__bio">His work advances AI-enabled geospatial and agroecosystem intelligence. He builds hybrid AI–physics frameworks that fuse satellite, airborne, and ground-sensor data using deep learning architectures (including Vision Transformers and multimodal models) to model crop dynamics, severe weather forecasting, and climate impacts on crop yield — and develops explainable, uncertainty-aware models trusted by scientific and operational stakeholders alike. His research appears in venues including CVPR and IEEE Remote Sensing journals, with models like CMAViT and FogNet translating physical domain knowledge into learnable representations.</p>
+          <p class="intro__bio">On the AI engineering side, he has 8+ years designing and operating production ML systems — from embedding-based retrieval and real-time ranking pipelines to large-scale forecasting and decision systems under uncertainty (Microsoft). He works across the full ML stack: LLMs, VLMs, fine-tuning, RAG systems, LLM evaluation, and conversational AI, as well as foundational infrastructure — low-latency inference APIs, feature stores, distributed training, and A/B experimentation frameworks.</p>
+          <p class="intro__bio">What makes his profile uncommon is the ability to move fluidly between both: turning messy scientific data into ML-ready pipelines, and grounding engineering decisions in domain physics rather than treating models as black boxes.</p>
         </div>
       </div>
       <div class="intro__projects" aria-label="Core project themes">
@@ -53,6 +50,218 @@
         </div>
       </div>
     </section>
+
+    <!-- START: expertise-profile-card -->
+    <style>
+      .xp-card {
+        margin-top: 1.5rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 2rem 2.25rem;
+        box-shadow: var(--shadow-subtle);
+      }
+      .xp-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .xp-col {
+        padding: 1.5rem;
+        border-radius: 14px;
+      }
+      .xp-col--sci {
+        background: rgba(26, 58, 92, 0.05);
+        border: 1px solid rgba(26, 58, 92, 0.14);
+      }
+      .xp-col--eng {
+        background: rgba(45, 106, 79, 0.05);
+        border: 1px solid rgba(45, 106, 79, 0.14);
+      }
+      .xp-col__heading {
+        margin: 0 0 1.25rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .xp-col--sci .xp-col__heading { color: #1a3a5c; }
+      .xp-col--eng .xp-col__heading { color: #2d6a4f; }
+      .xp-group { margin-bottom: 0.95rem; }
+      .xp-group:last-child { margin-bottom: 0; }
+      .xp-group__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+      }
+      .xp-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .xp-chip {
+        border-radius: 999px;
+        padding: 0.18rem 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        line-height: 1.65;
+        font-family: var(--font-sans);
+      }
+      .xp-chip--sci {
+        background: rgba(26, 58, 92, 0.09);
+        color: #1a3a5c;
+        border: 1px solid rgba(26, 58, 92, 0.18);
+      }
+      .xp-chip--eng {
+        background: rgba(45, 106, 79, 0.09);
+        color: #2d6a4f;
+        border: 1px solid rgba(45, 106, 79, 0.18);
+      }
+      .xp-bridge {
+        margin-top: 1.5rem;
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+        background: rgba(37, 99, 235, 0.04);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+      }
+      .xp-bridge__item {
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        padding: 0.25rem 0.85rem;
+        border-right: 1px solid rgba(37, 99, 235, 0.22);
+        white-space: nowrap;
+      }
+      .xp-bridge__item:last-child { border-right: none; }
+      @media (max-width: 640px) {
+        .xp-cols { grid-template-columns: 1fr; }
+        .xp-card { padding: 1.5rem 1.25rem; }
+        .xp-bridge__item {
+          border-right: none;
+          border-bottom: 1px solid rgba(37, 99, 235, 0.18);
+          width: 100%;
+          text-align: center;
+          padding: 0.4rem 0.5rem;
+        }
+        .xp-bridge__item:last-child { border-bottom: none; }
+      }
+    </style>
+    <section class="xp-card" aria-label="Expertise profile">
+      <div class="xp-cols">
+
+        <!-- Left: Science Domain -->
+        <div class="xp-col xp-col--sci">
+          <h3 class="xp-col__heading">Science Domain</h3>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Modeling</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--sci">Hybrid AI–Physics</span>
+              <span class="xp-chip xp-chip--sci">Process-based Models</span>
+              <span class="xp-chip xp-chip--sci">Uncertainty Quantification</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Data</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--sci">Hyperspectral Imagery</span>
+              <span class="xp-chip xp-chip--sci">Satellite (Sentinel/MODIS)</span>
+              <span class="xp-chip xp-chip--sci">Airborne LiDAR</span>
+              <span class="xp-chip xp-chip--sci">Ground Sensors</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Applications</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--sci">Carbon &amp; GHG Flux</span>
+              <span class="xp-chip xp-chip--sci">Soil Health</span>
+              <span class="xp-chip xp-chip--sci">Water Balance</span>
+              <span class="xp-chip xp-chip--sci">Crop Yield</span>
+              <span class="xp-chip xp-chip--sci">Weather Forecasting</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Methods</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--sci">Vision Transformers</span>
+              <span class="xp-chip xp-chip--sci">Multimodal Fusion</span>
+              <span class="xp-chip xp-chip--sci">XAI</span>
+              <span class="xp-chip xp-chip--sci">Time-Series Forecasting</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: AI / ML Engineering -->
+        <div class="xp-col xp-col--eng">
+          <h3 class="xp-col__heading">AI / ML Engineering</h3>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Language &amp; Vision Models</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--eng">LLMs</span>
+              <span class="xp-chip xp-chip--eng">VLMs</span>
+              <span class="xp-chip xp-chip--eng">Fine-tuning</span>
+              <span class="xp-chip xp-chip--eng">RAG Systems</span>
+              <span class="xp-chip xp-chip--eng">LLM Evaluation</span>
+              <span class="xp-chip xp-chip--eng">Chatbots</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Production Systems</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--eng">End-to-end ML Pipelines</span>
+              <span class="xp-chip xp-chip--eng">Low-latency Inference</span>
+              <span class="xp-chip xp-chip--eng">Embedding Retrieval</span>
+              <span class="xp-chip xp-chip--eng">Ranking</span>
+              <span class="xp-chip xp-chip--eng">A/B Experimentation</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Infrastructure</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--eng">AWS / SageMaker / EKS</span>
+              <span class="xp-chip xp-chip--eng">Spark / Airflow / MLflow</span>
+              <span class="xp-chip xp-chip--eng">Docker / Kubernetes</span>
+              <span class="xp-chip xp-chip--eng">PyTorch / JAX</span>
+            </div>
+          </div>
+
+          <div class="xp-group">
+            <p class="xp-group__label">Foundations</p>
+            <div class="xp-chips">
+              <span class="xp-chip xp-chip--eng">Distributed Training</span>
+              <span class="xp-chip xp-chip--eng">Feature Stores</span>
+              <span class="xp-chip xp-chip--eng">Model Monitoring</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bridge row -->
+      <div class="xp-bridge" aria-label="Where science and engineering meet">
+        <span class="xp-bridge__item">Satellite × Deep Learning</span>
+        <span class="xp-bridge__item">Physics × Neural Nets</span>
+        <span class="xp-bridge__item">Multimodal Fusion</span>
+        <span class="xp-bridge__item">Research → Production</span>
+        <span class="xp-bridge__item">Climate × ML Systems</span>
+      </div>
+    </section>
+    <!-- END: expertise-profile-card -->
+
   </main>
 
   <footer class="footer">
