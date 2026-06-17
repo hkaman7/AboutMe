@@ -19,64 +19,89 @@
     </nav>
   </header>
 
-  <main class="main">
-    <section class="pillars" id="pillars" aria-label="Project themes">
-      <div class="pillars__grid" role="tablist">
-        <article class="pillar-card" role="tab" tabindex="0" data-project-id="climate-weather" aria-controls="details-panel">
-          <h3>Climate &amp; Weather Forecasting</h3>
-          <p>Hybrid physics-ML systems for climate risk and local weather nowcasting.</p>
-          <span class="pillar-card__action">Open details →</span>
-        </article>
-        <article class="pillar-card" role="tab" tabindex="-1" data-project-id="precision-agriculture" aria-controls="details-panel">
-          <h3>Precision Agriculture</h3>
-          <p>Decision support for growers using remote sensing, soil analytics, and robotics.</p>
-          <span class="pillar-card__action">Open details →</span>
-        </article>
-        <article class="pillar-card" role="tab" tabindex="-1" data-project-id="ml-tools" aria-controls="details-panel">
-          <h3>ML Tools</h3>
-          <p>Reusable MLOps and visualization tooling to deploy models responsibly.</p>
-          <span class="pillar-card__action">Open details →</span>
-        </article>
-      </div>
-    </section>
+  <main>
+    <div class="proj-list">
 
-    <div class="details__subprojects" aria-label="Subprojects selector">
-      <h3>Subprojects</h3>
-      <div class="subproject-list" role="list"></div>
+      <!-- Card 1: LLM RAG System -->
+      <article class="proj-card">
+        <div class="proj-card__visual">
+          <div class="proj-card__placeholder">
+            <div class="proj-card__play">▶</div>
+            <p class="proj-card__placeholder-label">Demo video coming soon</p>
+          </div>
+        </div>
+        <div class="proj-card__body">
+          <p class="proj-card__label">LLM · RAG · Production AI</p>
+          <h2 class="proj-card__title">LLM RAG System &amp; Evaluation</h2>
+          <p class="proj-card__desc">A production-ready Retrieval-Augmented Generation system for Persian finance and tax law documents. Combines hybrid BM25 + vector retrieval over a Chroma index with a streaming FastAPI backend and React frontend. Includes a built-in evaluation framework with regression gates that block index deployments when answer quality drops — ensuring the system stays reliable as documents are updated.</p>
+          <div class="proj-card__tags">
+            <span class="proj-card__tag">LangChain</span>
+            <span class="proj-card__tag">Chroma DB</span>
+            <span class="proj-card__tag">BM25 Hybrid Retrieval</span>
+            <span class="proj-card__tag">FastAPI</span>
+            <span class="proj-card__tag">React + Vite</span>
+            <span class="proj-card__tag">Streamlit</span>
+            <span class="proj-card__tag">OpenAI / Anthropic</span>
+            <span class="proj-card__tag">Docker</span>
+            <span class="proj-card__tag">LLM Evaluation</span>
+          </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/hkaman7/finance-law-chatbot" target="_blank" rel="noopener noreferrer" class="proj-card__link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Global Scale Downscaling -->
+      <article class="proj-card">
+        <div class="proj-card__visual">
+          <img src="assets/images/CA_t2m.gif" alt="Global climate temperature field visualization" loading="lazy" />
+        </div>
+        <div class="proj-card__body">
+          <p class="proj-card__label">Climate AI · Microsoft</p>
+          <h2 class="proj-card__title">End-to-End ML Pipeline for Global Scale Downscaling</h2>
+          <p class="proj-card__desc">A large-scale machine learning pipeline for statistical downscaling of global climate model outputs to high spatial resolution, developed at Microsoft. The system covers the full ML lifecycle — from raw climate model ingestion and feature engineering to distributed model training, automated validation, and deployment-ready forecast outputs — enabling fine-grained climate projections at continental and global extents.</p>
+          <div class="proj-card__tags">
+            <span class="proj-card__tag">PyTorch</span>
+            <span class="proj-card__tag">Distributed Training</span>
+            <span class="proj-card__tag">Azure / AKS</span>
+            <span class="proj-card__tag">Climate Models</span>
+            <span class="proj-card__tag">MLflow</span>
+            <span class="proj-card__tag">Airflow</span>
+            <span class="proj-card__tag">Time-Series Forecasting</span>
+            <span class="proj-card__tag">MLOps</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Python Packaging & Data Benchmarking -->
+      <article class="proj-card">
+        <div class="proj-card__visual">
+          <img src="assets/images/init.png" alt="California crop yield benchmark data overview" loading="lazy" />
+        </div>
+        <div class="proj-card__body">
+          <p class="proj-card__label">Open Source · CVPR 2025</p>
+          <h2 class="proj-card__title">Python Packaging &amp; Data Benchmarking</h2>
+          <p class="proj-card__desc">Open-source Python package and benchmark dataset for county-level crop yield forecasting across 70+ California crops (2008–2022). Integrates satellite imagery (Sentinel/MODIS), climate variables, evapotranspiration, and soil layers into structured dataloaders. Published to HuggingFace Hub with evaluation protocols and baseline model results, providing a reproducible benchmark for the agricultural ML community.</p>
+          <div class="proj-card__tags">
+            <span class="proj-card__tag">Python Package</span>
+            <span class="proj-card__tag">HuggingFace Datasets</span>
+            <span class="proj-card__tag">Satellite Data</span>
+            <span class="proj-card__tag">Benchmark</span>
+            <span class="proj-card__tag">Sentinel / MODIS</span>
+            <span class="proj-card__tag">Evapotranspiration</span>
+            <span class="proj-card__tag">CVPR 2025</span>
+          </div>
+          <div class="proj-card__links">
+            <a href="https://huggingface.co/datasets/hkaman/california-crop-yield-benchmark" target="_blank" rel="noopener noreferrer" class="proj-card__link">HuggingFace Dataset →</a>
+          </div>
+        </div>
+      </article>
+
     </div>
-
-    <section class="details" id="details-panel" aria-live="polite">
-      <div class="details__header">
-        <h2 class="details__title">Select a theme to explore the work</h2>
-        <p class="details__subtitle">You will see each collection's goals, architecture, featured projects, and visuals when you choose a theme above.</p>
-      </div>
-      <div id="a11y-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
-      <div class="details__content">
-        <div class="details__summary">
-          <h3>Project Snapshot</h3>
-          <p class="details__description">Pick a project theme to load its snapshot.</p>
-          <div class="details__subproject">
-            <h4 class="details__subproject-title">Select a project to see its highlights.</h4>
-            <p class="details__subproject-summary"></p>
-            <div class="details__subproject-tags"></div>
-          </div>
-          <dl class="details__metrics"></dl>
-        </div>
-
-        <div class="details__visual">
-          <h3>Visualization</h3>
-          <div class="visual-grid" aria-label="Visualizations for the selected project">
-            <p class="visual-placeholder">Select a project to load visuals.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <p>© hkamangir.com · Crafted for collaborative science and engineering storytelling.</p>
   </footer>
-
-  <script src="assets/js/app.js" defer></script>
 </body>
 </html>
