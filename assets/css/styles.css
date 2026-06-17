@@ -762,12 +762,11 @@ body {
   color: var(--color-text);
   font-size: 2rem;
   margin: 0 0 1.75rem;
-  text-align: center;
 }
 
 .selected-pubs__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -778,36 +777,40 @@ body {
   box-shadow: var(--shadow-subtle);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .sel-pub-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-soft);
 }
 
 .sel-pub-card__visual {
   margin: 0;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #f1f5f9;
+  width: 260px;
+  flex-shrink: 0;
+  background: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
 }
 
 .sel-pub-card__visual img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: 210px;
+  object-fit: contain;
   display: block;
 }
 
 .sel-pub-card__body {
-  padding: 1.25rem 1.4rem 1.4rem;
+  padding: 1.5rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex: 1;
+  border-left: 1px solid var(--color-border);
 }
 
 .sel-pub-card__venue {
@@ -820,22 +823,33 @@ body {
 }
 
 .sel-pub-card__title {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.5;
+  margin: 0.1rem 0 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.45;
   color: var(--color-text);
 }
 
 .sel-pub-card__desc {
-  margin: 0;
-  font-size: 0.91rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.93rem;
   color: var(--color-text-muted);
   line-height: 1.55;
+}
+
+.sel-pub-card__findings {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
   flex: 1;
 }
 
 .sel-pub-card__links {
-  margin-top: 0.85rem;
+  margin-top: 1rem;
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
@@ -852,6 +866,24 @@ body {
 .sel-pub-card__link:focus-visible {
   text-decoration: underline;
   outline: none;
+}
+
+@media (max-width: 720px) {
+  .sel-pub-card {
+    flex-direction: column;
+  }
+  .sel-pub-card__visual {
+    width: 100%;
+    padding: 1rem;
+  }
+  .sel-pub-card__visual img {
+    height: 180px;
+  }
+  .sel-pub-card__body {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding: 1.25rem 1.4rem;
+  }
 }
 
 .publications__content {
