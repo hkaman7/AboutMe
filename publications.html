@@ -26,38 +26,38 @@
 
         <article class="sel-pub-card">
           <figure class="sel-pub-card__visual">
-            <img src="assets/images/token.png" alt="FogNet-v2.0 explainable transformer diagram" loading="lazy" />
+            <img src="assets/images/CMAViT.png" alt="CMAViT multimodal architecture for crop yield prediction" loading="lazy" />
           </figure>
           <div class="sel-pub-card__body">
-            <p class="sel-pub-card__venue">ESS Open Archive · 2024</p>
-            <h3 class="sel-pub-card__title">FogNet-v2.0: Explainable Physics-Informed Vision Transformer for Coastal Fog Forecasting</h3>
-            <p class="sel-pub-card__desc">A physics-informed Vision Transformer that fuses 3D atmospheric state variables with stability indices and moisture flux constraints to produce explainable coastal visibility forecasts up to 24 hours ahead.</p>
-            <ul class="sel-pub-card__findings">
-              <li>Outperformed the NWS LAMP baseline by ~28% in Critical Success Index (CSI) for fog onset at coastal California airports.</li>
-              <li>Attention maps align with known physical fog mechanisms — low-level moisture convergence, temperature inversions — providing meteorologist-interpretable explanations.</li>
-              <li>Physics constraints improve generalization to unseen coastal stations without retraining.</li>
-            </ul>
-            <div class="sel-pub-card__links">
-              <a href="https://essopenarchive.org/users/733679/articles/1021813-fognet-v2-0-explainable-physics-informed-vision-transformer-for-coastal-fog-forecasting" target="_blank" rel="noopener noreferrer" class="sel-pub-card__link">Preprint →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="sel-pub-card">
-          <figure class="sel-pub-card__visual">
-            <img src="assets/images/CMAViT.png" alt="CMAViT multimodal architecture for vineyard yield forecasting" loading="lazy" />
-          </figure>
-          <div class="sel-pub-card__body">
-            <p class="sel-pub-card__venue">arXiv · 2025</p>
-            <h3 class="sel-pub-card__title">CMAViT: Integrating Climate, Management, and Remote Sensing Data for Crop Yield Estimation with Multimodal Vision Transformers</h3>
-            <p class="sel-pub-card__desc">A multimodal Vision Transformer that jointly encodes satellite time-series, seasonal climate, irrigation management records, and soil properties through cross-modal attention for vineyard and county-level yield prediction.</p>
+            <p class="sel-pub-card__venue">IEEE JSTARS · 2026</p>
+            <h3 class="sel-pub-card__title">CMAViT: Integrating Climate, Management, and Remote Sensing Data for Crop Yield Prediction With Multimodel Vision Transformers</h3>
+            <p class="sel-pub-card__desc">A multimodal Vision Transformer that jointly encodes satellite time-series, seasonal climate, irrigation management records, and soil properties through cross-modal attention for vineyard and county-level yield prediction — now published in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.</p>
             <ul class="sel-pub-card__findings">
               <li>Achieved ~12% lower RMSE than single-modality baselines on California county-level grape yield prediction.</li>
               <li>Cross-attention between climate and management tokens captures how irrigation decisions modulate heat-stress response — a relationship invisible to unimodal models.</li>
               <li>Temporal ViT encoding preserves inter-annual variability patterns that recurrent baselines (LSTMs) systematically underfit.</li>
             </ul>
             <div class="sel-pub-card__links">
-              <a href="https://arxiv.org/abs/2411.16989" target="_blank" rel="noopener noreferrer" class="sel-pub-card__link">arXiv →</a>
+              <a href="https://ieeexplore.ieee.org/abstract/document/11419754/" target="_blank" rel="noopener noreferrer" class="sel-pub-card__link">IEEE →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="sel-pub-card">
+          <figure class="sel-pub-card__visual">
+            <img src="assets/images/model.png" alt="Vision foundation model evaluation for botanical object detection" loading="lazy" />
+          </figure>
+          <div class="sel-pub-card__body">
+            <p class="sel-pub-card__venue">CVPRW · 2026</p>
+            <h3 class="sel-pub-card__title">Does Your VFM Speak Plant? The Botanical Grammar of Vision Foundation Models for Object Detection</h3>
+            <p class="sel-pub-card__desc">A systematic benchmark of Vision Foundation Models (VFMs) on agricultural object detection tasks, evaluating whether models pre-trained on general imagery understand the botanical grammar — texture, morphology, and structure — that defines plant species and growth stages.</p>
+            <ul class="sel-pub-card__findings">
+              <li>VFMs trained on general image corpora exhibit a consistent botanical domain gap: they underperform specialist models on fine-grained plant detection tasks involving leaf topology and canopy structure.</li>
+              <li>Introduced a "botanical grammar" taxonomy — leaf morphology, branching patterns, and phenological cues — as a diagnostic framework for assessing VFM readiness in agricultural settings.</li>
+              <li>Targeted fine-tuning with botanical exemplars substantially closes the detection gap, demonstrating that VFMs can serve as strong backbones once domain-adapted.</li>
+            </ul>
+            <div class="sel-pub-card__links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2026W/V4A/html/Lundqvist_Does_Your_VFM_Speak_Plant_The_Botanical_Grammar_of_Vision_CVPRW_2026_paper.html" target="_blank" rel="noopener noreferrer" class="sel-pub-card__link">CVPR Open Access →</a>
             </div>
           </div>
         </article>
@@ -92,9 +92,16 @@
       <div class="publications__group">
         <h3>Peer-Reviewed &amp; Preprint Publications</h3>
         <div class="pub-year">
+          <h4>2026</h4>
+          <ul class="pub-list">
+            <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2026.</strong> CMAViT: Integrating Climate, Management, and Remote Sensing Data for Crop Yield Prediction With Multimodel Vision Transformers. <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em>.</li>
+            <li><strong>Lundqvist, L., Ranario, E., Kamangir, H., Yun, H., Diepenbrock, C., Bailey, B.N., &amp; Earles, J.M., 2026.</strong> Does Your VFM Speak Plant? The Botanical Grammar of Vision Foundation Models for Object Detection. <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)</em>, 9768–9776.</li>
+          </ul>
+        </div>
+        <div class="pub-year">
           <h4>2025</h4>
           <ul class="pub-list">
-            <li><strong>Kamangir, H., Hajiesameeli, M., &amp; Earles, J.M., 2025.</strong> California Crop Yield Benchmark: Combining Satellite Image, Climate, Evapotranspiration, and Soil Data Layers for County-Level Yield Forecasting of Over 70 Crops. <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>. [Accepted]</li>
+            <li><strong>Kamangir, H., Hajiesameeli, M., &amp; Earles, J.M., 2025.</strong> California Crop Yield Benchmark: Combining Satellite Image, Climate, Evapotranspiration, and Soil Data Layers for County-Level Yield Forecasting of Over 70 Crops. <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>.</li>
             <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2025.</strong> Predicting crop yield lows through the highs via binned deep imbalanced regression: A case study on vineyards. <em>International Journal of Applied Earth Observation and Geoinformation</em>, 139, 104536.</li>
             <li><strong>Kamangir, H., Sams, B.S., Dokoozlian, N., Sanchez, L., &amp; Earles, J.M., 2025.</strong> CMAViT: Integrating Climate, Management, and Remote Sensing Data for Crop Yield Estimation with Multimodal Vision Transformers. <em>arXiv</em>:2411.16989.</li>
           </ul>
@@ -157,6 +164,12 @@
       </div>
       <div class="publications__group">
         <h3>Technical &amp; Oral Presentations</h3>
+        <div class="pub-year">
+          <h4>2026</h4>
+          <ul class="pub-list">
+            <li><strong>Lundqvist, L., Ranario, E., Kamangir, H., Yun, H., Diepenbrock, C., Bailey, B.N., &amp; Earles, J.M., 2026.</strong> Does Your VFM Speak Plant? The Botanical Grammar of Vision Foundation Models for Object Detection. <em>IEEE/CVF CVPR Workshop on Vision for Agriculture (V4A)</em>, June.</li>
+          </ul>
+        </div>
         <div class="pub-year">
           <h4>2025</h4>
           <ul class="pub-list">
