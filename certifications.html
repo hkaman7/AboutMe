@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications · hkamangir.com</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Primary navigation">
+      <span class="nav__brand">hkamangir.com</span>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">About Me</a></li>
+        <li><a href="projects.html" class="nav__link">Projects</a></li>
+        <li><a href="publications.html" class="nav__link">Publications</a></li>
+        <li><a href="certifications.html" class="nav__link nav__link--active">Certifications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="certifications" class="certifications certifications--standalone" aria-labelledby="certifications-title">
+    <div class="certifications__inner">
+      <h2 id="certifications-title">Certifications</h2>
+      <p class="certifications__intro">Selected professional certifications and training. Click any item to view a larger image and details.</p>
+      <div class="cert-grid" id="cert-grid" role="list"></div>
+    </div>
+
+    <div id="cert-lightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-labelledby="cert-lightbox-title" tabindex="-1" hidden>
+      <div class="cert-lightbox__backdrop" data-action="close"></div>
+      <div class="cert-lightbox__panel">
+        <button class="cert-lightbox__close" aria-label="Close (Esc)" data-action="close">×</button>
+        <button class="cert-lightbox__nav cert-lightbox__prev" aria-label="Previous" data-action="prev">‹</button>
+        <div class="cert-lightbox__content">
+          <h3 id="cert-lightbox-title" class="visually-hidden">Certificate preview</h3>
+          <figure class="cert-lightbox__figure">
+            <img id="cert-lightbox-img" class="cert-lightbox__img" src="" alt="" />
+            <figcaption id="cert-lightbox-caption" class="cert-lightbox__caption"></figcaption>
+          </figure>
+        </div>
+        <button class="cert-lightbox__nav cert-lightbox__next" aria-label="Next" data-action="next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© hkamangir.com · Crafted for collaborative science and engineering storytelling.</p>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
